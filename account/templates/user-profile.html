@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load i18n %}
+
+{% load static %}
+
+<br><br>
+<div style="text-align: center;">
+    <img src="https://www.shareicon.net/data/2016/05/24/770139_man_512x512.png" alt="No image!!!" style="height: 250px;">
+    <div class="container">
+        <h1 class="animation">
+          {{user.username}}
+        </h1>
+      </div>
+    <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus id natus nulla optio praesentium odit, beatae porro tenetur esse quod illo?<br> Amet laborum repellendus quia. Aspernatur necessitatibus cumque ratione beatae?<br>
+    at, porro optio amet, praesentium officiis pariatur soluta, aliquid ea quibusdam consequuntur totam.</p>
+    <a class="forgot-word" href="/change_password">{% trans 'Change Password' %}</a>
+    &nbsp;
+    |
+    &nbsp;
+    <a class="forgot-word" href="{% url 'logout_page' %}" >{% trans 'Log Out' %}</a>
+</div>
+
+<br><br>
+{% endblock %}

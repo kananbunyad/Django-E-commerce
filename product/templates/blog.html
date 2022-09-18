@@ -1,0 +1,90 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/blogmate.css' %}">
+<script src="{% static 'js/search.js' %}"></script>
+
+
+<!-- Main Container -->
+
+<section class="main-container col2-right-layout bounceInUp animated">
+  <div class="main container">
+    <div class="row">
+      <div class="col-main col-sm-9">
+
+        <div class="blog-wrapper latest-blog" id="main">
+          <div class="site-content" id="primary">
+            <div role="main" id="content">
+              {% for posts in blog_post %}
+
+              <div class="blog_post">
+                <div class="thumbnail">
+                  <h2> <a href="/blog/{{ posts.slug }}">{{ posts.title }}</a> </h2>
+                  <div class="featured-img">
+                    <img src="{{ posts.image.url }}" alt="blog post">
+
+                  </div>
+
+                </div>
+                <div class="entry-meta">
+                  <a href="#">
+                    <span class="author-avatar byline"><img alt=""
+                        src="https://i.pinimg.com/originals/1b/db/ea/1bdbeacf3f8d0468883064a032e03bad.jpg"
+                        class="avatar avatar-96 photo">{{ posts.username }}</span> <span class="timestamp">January 26,
+                      2016</span>
+                  </a>
+                </div>
+                <p>{{ posts.description }}</p>
+                <a href="#" class="continue-btn">Continue Reading <span>›</span></a>
+              </div>
+
+              {%endfor%}
+
+            </div>
+          </div>
+          <br><br>
+        </div>
+      </div>
+      <aside class="col-right sidebar col-sm-3">
+        <div role="complementary" class="widget_wrapper13" id="secondary">
+          <div class="popular-posts widget widget__sidebar" id="recent-posts-4">
+            <h3 class="widget-title">Most Popular Post</h3>
+            <div class="widget-content">
+              {% for posts in blog_post %}
+              <ul class="posts-list unstyled clearfix">
+                <li>
+                  <figure class="featured-thumb"> <a href="#"> <img width="80" height="53" alt="blog image"
+                        src="{{ posts.image.url }}"> </a> </figure>
+                  <h4><a href="/blog/{{ posts.slug }}">{{ posts.title }}</a></h4>
+                  <p class="post-meta"><i class="icon-calendar"></i>
+                    <time datetime="2014-07-10T07:09:31+00:00" class="entry-date">JANUARY 26, 2016</time>
+                    .
+                  </p>
+                </li>
+                {%endfor%}
+
+
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="text-widget widget widget__sidebar">
+            <h3 class="widget-title">Text Widget</h3>
+            <div class="widget-content">Mauris at blandit erat. Nam vel tortor non quam scelerisque cursus. Praesent
+              nunc vitae magna pellentesque auctor. Quisque id lectus.<br>
+              <br>
+              Massa, eget eleifend tellus. Proin nec ante leo ssim nunc sit amet velit malesuada pharetra. Nulla neque
+              sapien, sollicitudin non ornare quis, malesuada.
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+<!-- Main Container End -->
+
+{% endblock %}

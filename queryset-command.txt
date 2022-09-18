@@ -1,0 +1,99 @@
+--------------- TASK 1 (  Daxil edilmiş məlumata uyğun məhsulları axtarış edən qs yaradın ) -----------
+
+from product.models import *
+
+p = Product.objects.filter(title='T-Shirt').values()
+
+print(p)
+
+----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+-------------------- TASK 2 (Daxil edilmiş məhsulun (product) review-larını qaytaran qs yazın) ------------
+
+
+from product.models import *
+
+p2 = Product.objects.get(id=2).review.all
+
+print(p2)
+
+-------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------------ TASK 3 (Daxil edilmiş məhsulla oxşar olan son dörd məhsulu qaytaran qs yazın (eyni kateqoriya və ya brendə aid olan) ----------
+
+
+from product.models import *
+
+p3 = Product.objects.all().filter(brand__title='Nike', category__title='Sport Shoes').order_by('-created_at')[:4]
+
+print(p3)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+------ TASK 4 (Məhsulların kateqoriyalarını qaytaran qs yazın (queryset nəticəsi kimi qayıdan kateqoriyaların hər birinə ən az bir product aid olmalıdır) ----------
+
+
+from product.models import *
+
+for i in Product.objects.all():
+    print(i.category)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+-------------- TASK 5 (Daxil edilmiş kateqoriyaya aid məhsulları qaytaran qs yazın) ---------------
+
+from product.models import *
+
+p5 = Product.objects.all().filter(category__title='Sport Shoes')
+
+print(p5)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+------- TASK 6 (Ən son elave olan məhsulu qaytaran qs yazın) --------------------
+
+from product.models import *
+
+p6 = Product.objects.latest('created_at')
+
+print(p6)
+
+
+----------------------------------------------------------------------------------------------------------------------------------

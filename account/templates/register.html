@@ -1,0 +1,135 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- Main Container -->
+  <section class="main-container col1-layout bounceInUp animated">
+    <div class="main container">
+      <div class="account-login">
+        <div class="page-title">
+          <h1>Login or Create an Account</h1>
+        </div>
+        <fieldset class="col2-set">
+          <legend>Login or Create an Account</legend>
+          <div class="col-1 new-users"><strong>Registered Customers</strong>
+            <div class="content">
+              <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+              <div class="buttons-set">
+                <a href="{% url 'login' %}"><button class="button create-account"><span>Login</span></button></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 registered-users"><strong>New Customers</strong>
+            <div class="content">
+              <p>If you have an account with us, please log in.</p>
+              <form action="{% url 'register'%}" method="POST" class="group-select">
+              <!-- <ul class="form-list"> -->
+                {% csrf_token %}
+
+                {% for field in form %}
+                  
+                    {{field}}
+                <!-- <li>
+                  <label for="name">First Name<span class="required">*</span></label>
+                  <br>
+                  <input type="text" title="" id="name" class="input-text" name="">
+                </li>
+                <li>
+                  <label for="surname">Last Name<span class="required">*</span></label>
+                  <br>
+                  <input type="text" title="" id="surname" class="input-text" name="">
+                </li>
+                <li>
+                  <label for="email">Email Address <span class="required">*</span></label>
+                  <br>
+                  <input type="text" title="" class="input-text" id="email" value="" name="">
+                </li>
+                <li>
+                  <label for="pass">Password <span class="required">*</span></label>
+                  <br>
+                  <input type="password" title="" id="pass" class="input-text" name="">
+                </li>
+                <li>
+                  <label for="pass2">Confirm password <span class="required">*</span></label>
+                  <br>
+                  <input type="password" title="" id="pass2" class="input-text" name="">
+                </li> -->
+                <ul>
+                    {% for error in field.errors %}
+                    <li class="alert alert-danger"> {{ error }} </li>
+                    {%endfor%}
+                </ul>
+              <!-- <li>
+                <div class="customer-name">
+                  <div class="input-box name-firstname">
+                    <label for="billing:firstname"> First Name<span class="required">*</span></label>
+                    <br>
+                    <input type="text" id="billing:firstname" name="" title="First Name" class="input-text ">
+                  </div>
+                  <div class="input-box name-lastname">
+                    <label for="billing:lastname"> Email Address <span class="required">*</span> </label>
+                    <br>
+                    <input type="text" id="billing:lastname" name="" title="Last Name" class="input-text">
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="input-box">
+                  <label for="billing:company">Company</label>
+                  <br>
+                  <input type="text" id="billing:company" name="" title="Company" class="input-text">
+                </div>
+                <div class="input-box">
+                  <label for="billing:email">Telephone <span class="required">*</span></label>
+                  <br>
+                  <input type="text" name="" id="billing:email" title="Email Address" class="input-text">
+                </div>
+              </li>
+              <li>
+                <label for="billing:street1">Address <span class="required">*</span></label>
+                <br>
+                <input type="text" title="Street Address" name="" class="input-text">
+              </li>
+              <li>
+                <input type="text" title="Street Address 2" name="" class="input-text">
+              </li>
+              <li class="">
+                <label for="comment">Comment<em class="required">*</em></label>
+                <br>
+                <div style="float:none" class="">
+                  <textarea name="" id="comment" title="Comment" class="input-text" cols="5" rows="3"></textarea>
+                </div>
+              </li> -->
+            <!-- </ul> -->
+              {%endfor%}
+              <!-- </ul> -->
+              <a href="" class="social-iconss">
+                <div style="display: flex;">
+                <a href="{% url 'social:begin' 'google-oauth2' %}"><i class="fab fa-google" style="font-size: 40px; color: blue;margin-top: 13px;"></i></a>
+                &nbsp;
+                <h4 style="font-size: 45px;color: blue;">+</h4>
+              </div>
+            </a>
+              <div class="buttons-set">
+                <button id="send2" name="" type="submit" class="button login"><span>Register</span></button>
+            </div>
+            </form>
+            <br>
+              <p class="required">* Required Fields</p>
+          </div>
+        </fieldset>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br> 
+      <br>
+    </div>
+  </section>
+  <!-- Main Container End --> 
+  
+
+  
+  {% endblock %}

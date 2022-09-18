@@ -1,0 +1,83 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+  
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- Main Container -->
+  <section class="main-container col1-layout bounceInUp animated">
+    <div class="main container">
+      <div class="account-login">
+        <div class="page-title">
+          <h1>Login or Create an Account</h1>
+        </div>
+        <fieldset class="col2-set">
+          <legend>Login or Create an Account</legend>
+          <div class="col-1 new-users"><strong>New Customers</strong>
+            <div class="content">
+              <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+              <div class="buttons-set">
+               <a href="{% url 'register' %}"> <button class="button create-account"><span>Create an Account</span></button></a>
+              </div>
+            </div>
+          </div>
+          <form id="login-form" action="{% url 'login'%}" method="POST" class="group-select">
+          <div class="col-2 registered-users"><strong>Registered Customers</strong>
+            <div class="content">
+              <p>If you have an account with us, please log in.</p>
+              <ul class="form-list">
+
+                {% csrf_token %}
+
+                {% for field in form %}
+        
+                    {{field}}
+                  <ul>
+                    {% for error in field.errors %}
+                      <li class="alert alert-danger"> {{ error }} </li>
+                    {%endfor%}
+                  </ul>
+                <!-- <li>
+                  <label for="email">Email Address <span class="required">*</span></label>
+                  <br>
+                  <input type="text" title="" class="input-text" id="email" value="" name="">
+                </li>
+                <li>
+                  <label for="pass">Password <span class="required">*</span></label>
+                  <br>
+                  <input type="password" title="" id="pass" class="input-text" name="">
+                </li> -->
+              </ul>
+              {%endfor%}
+              <br>
+              <a href="" class="social-iconss">
+                <div style="display: flex;">
+                <a href="{% url 'social:begin' 'google-oauth2' %}"><i class="fab fa-google" style="font-size: 40px; color: blue;margin-top: 13px;"></i></a>
+                &nbsp;
+                <h4 style="font-size: 45px;color: blue;">+</h4>
+              </div>
+            </a>
+            <br>
+              <p class="required">* Required Fields</p>
+              <div class="buttons-set">
+                <button id="send2" name="" type="button" class="button login"><span>Login</span></button>
+                <a class="forgot-word" href="{% url 'login' %}">Change Password?</a> </div>
+            </div>
+          </div>
+        </form>
+        </fieldset>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </section>
+  <!-- Main Container End --> 
+  {% block scripts %}
+  <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+  {% endblock %}
+  
+  {% endblock %}

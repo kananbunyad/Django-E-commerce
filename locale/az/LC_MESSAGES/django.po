@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-06 15:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: core/templates/base.html:85
+msgid " My Cart"
+msgstr "Mənim Səbətim"
+
+#: core/templates/base.html:89 core/templates/base.html:155
+msgid "Checkout"
+msgstr "Yoxla"
+
+#: core/templates/base.html:154
+msgid "My Account"
+msgstr "Mənim Hesabım"
+
+#: core/templates/base.html:156
+msgid "Blog"
+msgstr "BLoq"
+
+#: core/templates/base.html:163
+msgid "Log Out"
+msgstr "Çıxış"
+
+#: core/templates/base.html:165
+msgid "Log In"
+msgstr "Daxil ol"
+
+#: core/templates/base.html:189
+msgid "Menu"
+msgstr "Menyu"
+
+#: core/templates/base.html:193
+msgid "Home"
+msgstr ""
+
+#: core/templates/base.html:196
+msgid "Pages"
+msgstr "Səhifələr"
+
+#: core/templates/base.html:236
+msgid "Women"
+msgstr "Qadın"
+
+#: core/templates/base.html:302
+msgid "Men"
+msgstr "Kişi"
+
+#: core/templates/base.html:366
+msgid "Electronics"
+msgstr "Elektronika"
+
+#: core/templates/base.html:428
+msgid "Furniture"
+msgstr "Mebel"
+
+#: core/templates/base.html:431
+msgid "Kids"
+msgstr "Uşaq"
